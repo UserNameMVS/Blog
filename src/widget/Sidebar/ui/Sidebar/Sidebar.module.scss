@@ -1,0 +1,25 @@
+.Sidebar {
+  height: calc(100vh - var(--header-height));
+  width: 300px;
+  background-color: var(--secondary-bg-color);
+  position: relative;
+
+  transition: width 0.3s;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.switchers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+
+  bottom: 20px;
+}
+
+.switchers .switch:not(:last-child) {
+  margin-right: 10px;
+}
