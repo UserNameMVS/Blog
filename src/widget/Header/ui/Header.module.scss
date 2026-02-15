@@ -3,16 +3,7 @@
   align-items: center;
   width: 100%;
   height: var(--header-height);
-  background-color: var(--secondary-bg-color);
-  // margin-bottom: 20px;
-}
-
-.navList {
-  display: flex;
-}
-
-.listItem:not(:last-child) {
-  margin-right: 15px;
+  background-color: var(--bg-secondary);
 }
 
 .wrapper {

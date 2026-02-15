@@ -1,8 +1,13 @@
 .Sidebar {
   height: calc(100vh - var(--header-height));
   width: 300px;
-  background-color: var(--secondary-bg-color);
+  background-color: var(--bg-secondary);
   position: relative;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-between;
 
   transition: width 0.3s;
 }
@@ -11,15 +16,9 @@
   width: var(--sidebar-width-collapsed);
 }
 
-.switchers {
+.tools {
   width: 100%;
-  display: flex;
   justify-content: center;
-  position: absolute;
-
-  bottom: 20px;
-}
-
-.switchers .switch:not(:last-child) {
-  margin-right: 10px;
+  display: flex;
+  gap: 10px;
 }

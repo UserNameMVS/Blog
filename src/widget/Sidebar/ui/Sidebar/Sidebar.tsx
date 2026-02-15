@@ -1,9 +1,10 @@
 import { FC, useState } from 'react'
-import { classNames } from 'shared/lib'
-import cls from './Sidebar.module.scss'
-import { ThemeSwitcher } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import { LangSwitcher } from 'widget/LangSwitcher/LangSwitcher'
+import { classNames } from 'shared/lib'
+import { Button, ThemeButton } from 'shared/ui/Button'
+import { LangSwitcher } from 'features/themeSwitcher/ui/LangSwitcher/LangSwitcher'
+import cls from './Sidebar.module.scss'
+import { ThemeSwitcher } from 'features/themeSwitcher'
 
 interface SidebarProps {
   className?: string
@@ -14,15 +15,19 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const { t, i18n } = useTranslation()
 
   const handleToggle = () => {
-    setCollapsed((prevState) => !prevState)
+    setCollapsed(prevState => !prevState)
   }
+
+  console.log()
 
   return (
     <aside className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-      <button onClick={handleToggle}>X</button>
-      <div className={cls.switchers}>
-        <ThemeSwitcher className={cls.switch} />
-        <LangSwitcher className={cls.switch} />
+      <Button onClick={handleToggle} theme={ThemeButton.CLEAR}>
+        X
+      </Button>
+      <div className={cls.tools}>
+        <ThemeSwitcher />
+        <LangSwitcher />
       </div>
     </aside>
   )
