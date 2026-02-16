@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { LangSwitcher } from 'features/themeSwitcher/ui/LangSwitcher/LangSwitcher'
-import cls from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'features/themeSwitcher'
+import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
   className?: string
@@ -15,7 +15,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const { t, i18n } = useTranslation()
 
   const handleToggle = () => {
-    setCollapsed(prevState => !prevState)
+    setCollapsed((prevState) => !prevState)
   }
 
   console.log()

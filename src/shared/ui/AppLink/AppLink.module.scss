@@ -1,3 +1,7 @@
-.navLink {
+.AppLink {
   color: var(--text-primary);
+
+  &.active {
+    text-decoration: underline;
+  }
 }

@@ -7,15 +7,13 @@ interface HeaderProps {
   className?: string
 }
 
-export const Header = ({ className }: HeaderProps) => {
-  return (
-    <header className={classNames(cls.header, {}, [className])}>
-      <Container>
-        <div className={cls.wrapper}>
-          Лого
-          <Navbar />
-        </div>
-      </Container>
-    </header>
-  )
-}
+export const Header = ({ className }: HeaderProps) => (
+  <header className={classNames(cls.header, {}, [className])}>
+    <Container>
+      <div className={cls.wrapper}>
+        Лого
+        <Navbar />
+      </div>
+    </Container>
+  </header>
+)

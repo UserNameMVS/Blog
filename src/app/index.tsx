@@ -5,18 +5,16 @@ import { Container } from 'shared/ui/Container/Container'
 import { Header } from 'widget/Header'
 import { Sidebar } from 'widget/Sidebar'
 
-export const App = () => {
-  return (
-    <Suspense>
-      <div className={classNames('app')}>
-        <Container>
-          <Header />
-          <div className='content-page'>
-            <Sidebar />
-            <AppRouting />
-          </div>
-        </Container>
-      </div>
-    </Suspense>
-  )
-}
+export const App = () => (
+  <Suspense fallback=''>
+    <div className={classNames('app')}>
+      <Container>
+        <Header />
+        <div className='content-page'>
+          <Sidebar />
+          <AppRouting />
+        </div>
+      </Container>
+    </div>
+  </Suspense>
+)

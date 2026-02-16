@@ -2,17 +2,17 @@ declare module '*.scss' {
   interface IClassNames {
     [className: string]: string
   }
-  const classNames: IClassNames;
-  export = classNames;
+  const classNames: IClassNames
+  export default classNames
 }
 
-declare module "*.jpeg";
-declare module "*.jpg";
-declare module "*.png";
+declare module '*.jpeg'
+declare module '*.jpg'
+declare module '*.png'
 
-declare module "*.svg" {
-  const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-  export default content;
+declare module '*.svg' {
+  const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+  export default content
 }
 
-declare const __is_DEV__: boolean;
+declare const __IS_DEV__: boolean

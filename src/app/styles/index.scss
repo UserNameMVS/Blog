@@ -1,17 +1,15 @@
-@import 'reset';
-@import 'variables/global';
+@import "reset";
+@import "variables/global";
 
 .app {
   font: var(--font-m);
-
   background: var(--bg-primary);
   color: var(--text-primary);
-
   min-height: 100vh;
 }
 
 a {
-  color:var(--text-primary);;
+  color: var(--text-primary);
 }
 
 .content-page {
