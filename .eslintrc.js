@@ -44,7 +44,8 @@ module.exports = {
     'jsx-quotes': ['error', 'prefer-single'],
     semi: ['error', 'never'],
     camelcase: ['error', { ignoreGlobals: true }],
-    "react/jsx-props-no-spreading": ["error", {
-    "custom": "enforce"
-  }],
-}}
+    'react/jsx-props-no-spreading': ['error', {
+      custom: 'enforce',
+    }],
+  },
+}
