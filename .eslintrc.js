@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -26,9 +27,12 @@ module.exports = {
     __IS_DEV__: 'readonly',
   },
   rules: {
+    indent: [2, 2],
+    semi: ['error', 'never'],
+    camelcase: ['error', { ignoreGlobals: true }],
+    code: 100,
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
-    indent: [2, 2],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
@@ -42,10 +46,9 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     'jsx-quotes': ['error', 'prefer-single'],
-    semi: ['error', 'never'],
-    camelcase: ['error', { ignoreGlobals: true }],
     'react/jsx-props-no-spreading': ['error', {
       custom: 'enforce',
     }],
+    'max-len': ['error', { ignoreComments: true }],
   },
 }

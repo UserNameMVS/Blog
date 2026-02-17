@@ -1,7 +1,8 @@
+import { RoutePath } from 'pages/config'
 import { useTranslation } from 'react-i18next'
-import { AppLink /* , AppLinkTheme */ } from 'shared/ui'
-import cls from './Navbar.module.scss'
 import { classNames } from 'shared/lib'
+import { AppLink } from 'shared/ui'
+import cls from './Navbar.module.scss'
 
 interface NavProps {
   className?: string
@@ -14,10 +15,10 @@ export const Navbar = ({ className }: NavProps) => {
     <nav>
       <ul className={classNames(cls.navList, {}, [className])}>
         <li>
-          <AppLink to='/'>{t('Главная')}</AppLink>
+          <AppLink to={RoutePath.main}>{t('Главная')}</AppLink>
         </li>
         <li>
-          <AppLink to='/about'>{t('О нас')}</AppLink>
+          <AppLink to={RoutePath.about}>{t('О нас')}</AppLink>
         </li>
       </ul>
     </nav>
