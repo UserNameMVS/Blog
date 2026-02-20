@@ -1,6 +1,6 @@
 import { ThemeContext } from 'app/providers/ThemeProvider/lib/ThemeContext'
+import { Theme, THEMES } from 'app/providers/ThemeProvider/types/theme'
 import { useContext } from 'react'
-import { Theme, THEMES } from 'shared/types/theme'
 
 interface UseThemeResult {
   theme: Theme

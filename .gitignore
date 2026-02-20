@@ -1,3 +1,6 @@
+// cSpell: ignore QWEN
+
 /node_modules
 /.vscode
 /dist
+QWEN.md

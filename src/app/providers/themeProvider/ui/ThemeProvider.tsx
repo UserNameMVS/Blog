@@ -1,6 +1,7 @@
-import { FC, useEffect, useMemo, useState } from 'react'
-import { ALL_THEMES, Theme, THEMES } from 'shared/types/theme'
-import { ThemeContext } from './lib/ThemeContext'
+import { ALL_THEMES, Theme, THEMES } from 'app/providers/ThemeProvider/types/theme'
+import { FC, useEffect, useMemo } from 'react'
+import { useLocalStorage } from 'shared/lib/hooks/useLocalStorage'
+import { ThemeContext } from '../lib/ThemeContext'
 
 const LOCAL_STORAGE_THEME_KEY = 'app_theme'
 
@@ -16,13 +17,11 @@ const getInitialTheme = (): Theme => {
 }
 
 export const ThemeProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(THEMES.LIGHT)
+  const [theme, setTheme] = useLocalStorage<Theme>(LOCAL_STORAGE_THEME_KEY, getInitialTheme())
 
   useEffect(() => {
-    const initial = getInitialTheme()
-    setTheme(initial)
-    document.documentElement.setAttribute('data-theme', initial)
-  }, [])
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -31,24 +30,22 @@ export const ThemeProvider: FC<{ children: React.ReactNode }> = ({ children }) =
       if (!savedTheme) {
         const newTheme = mediaQuery.matches ? THEMES.DARK : THEMES.LIGHT
         setTheme(newTheme)
-        document.documentElement.setAttribute('data-theme', newTheme)
       }
     }
 
     mediaQuery.addEventListener('change', handleChange)
     return () => mediaQuery.removeEventListener('change', handleChange)
-  }, [])
+  }, [setTheme])
 
   const value = useMemo(
     () => ({
       theme,
       setTheme: (next: Theme) => {
         setTheme(next)
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, next)
         document.documentElement.setAttribute('data-theme', next)
       },
     }),
-    [theme]
+    [theme, setTheme],
   )
 
   if (!theme) return null

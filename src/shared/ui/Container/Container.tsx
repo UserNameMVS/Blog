@@ -1,7 +1,12 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { classNames } from 'shared/lib'
 import cls from './Container.module.scss'
 
-export const Container: FC<React.HTMLAttributes<HTMLDivElement>> = ({ className, children }) => {
-  return <div className={classNames(cls.Container, {}, [className])}>{children}</div>
+interface ContainerProps {
+  className?: string
+  children?: React.ReactNode
 }
+
+export const Container: FC<ContainerProps> = ({ className, children }) => (
+  <div className={classNames(cls.Container, {}, [className])}>{children}</div>
+)
