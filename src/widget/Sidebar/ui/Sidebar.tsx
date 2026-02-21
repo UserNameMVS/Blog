@@ -1,5 +1,4 @@
-import { ThemeSwitcher } from 'features/themeSwitcher'
-import { LangSwitcher } from 'features/themeSwitcher/ui/LangSwitcher/LangSwitcher'
+import { LangSwitcher, ThemeSwitcher } from 'features/themeSwitcher'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib'

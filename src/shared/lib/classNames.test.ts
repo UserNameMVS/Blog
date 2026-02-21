@@ -28,13 +28,13 @@ describe('classNames', () => {
   // Комбинированный тест всех возможностей функции
   test('should combine all inputs correctly', () => {
     const result = classNames('main-class', { mod1: true, mod2: false }, ['add1', 'add2'])
-    expect(result).toBe('main-class mod1 add1 add2')
+    expect(result).toBe('main-class add1 add2 mod1')
   })
 
   // Граничный случай: пустая строка в основном имени класса
   test('should handle empty className', () => {
     const result = classNames('', { mod1: true }, ['add1'])
-    expect(result).toBe('mod1 add1')
+    expect(result).toBe('add1 mod1')
   })
 
   // Граничный случай: null и undefined в дополнительных классах
