@@ -5,13 +5,15 @@ export function classNames(
   mods: Mods = {},
   additional: string[] = []
 ): string {
-  return [
-    className,
-    ...additional.filter(Boolean),
-    ...Object.entries(mods)
-      .filter(([_, value]) => Boolean(value))
-      .map(([className]) => className),
-  ]
-    .filter(Boolean)
-    .join(' ')
+  return Array.from(
+    new Set(
+      [
+        className,
+        ...additional.filter(Boolean),
+        ...Object.entries(mods)
+          .filter(([_, value]) => Boolean(value))
+          .map(([className]) => className),
+      ].filter(Boolean)
+    )
+  ).join(' ')
 }

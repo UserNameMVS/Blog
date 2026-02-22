@@ -13,6 +13,15 @@ export default {
   rootDir: '../../',
   testMatch: ['<rootDir>src/**/**(*.)@(spec|test).[tj]s?(x)'],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg$': '<rootDir>/config/jest/__mocks__/svgMock.tsx',
+    '^shared/(.*)$': '<rootDir>/src/shared/$1',
+    '^entities/(.*)$': '<rootDir>/src/entities/$1',
+    '^features/(.*)$': '<rootDir>/src/features/$1',
+    '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
+    '^app/(.*)$': '<rootDir>/src/app/$1',
+  },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
